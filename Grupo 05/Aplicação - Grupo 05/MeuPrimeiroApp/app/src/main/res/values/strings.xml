@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">CidJus JFRN</string>
+    <!-- Tela Inicial -->
+    <string name="simples">Consulta Publica</string>
+    <string name="login">Login</string>
+    <string name="registro">Registre-se</string>
+    <!-- Tela Consulta Simples -->
+    <string name="nome">Nome Completo</string>
+    <string name="nprocesso">N°do Processo</string>
+    <string name="adv">OAB/RN</string>
+    <string name="exnome">DJALMA RIBEIRO DA SILVA</string>
+    <string name="busca">Busca</string>
+    <!-- Tela Busca Concluida -->
+    <string name="inicio">Início</string>
+    <string name="defesa">Defesa</string>
+    <string name="audiencias">Audiências | Provas</string>
+    <string name="setencas">Sentença</string>
+    <!-- Tela Resultados -->
+    <string name="encontrados">Processos Encontrados</string>
+    <string name="exBt68">0804168-65.2014.4.05.8400\nAutor: DJALMA RIBEIRO DA SILVA\nRéu: UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE - UFRN</string>
+    <string name="exBt2">0000013-86.2018.4.05.8402\nAutor: DJALMA RIBEIRO DA SILVA e outro\nRéu: UFRN</string>
+    <string name="exBt3">0000210-86.2018.4.05.8402\nAutor: Luciano Araújo Lopes e outro\nRéu: Caixa Econômica</string>
+    <!-- Tela detalhada -->
+    <string name="inicial">Início</string>
+    <string name="datainicial68">✔ Data Inicial: 03/09/2014</string>
+    <string name="datainicial47">✔ Data Inicial: 05/10/2016</string>
+    <string name="conclusao">✔ Aguarde! Seu processo está com o juiz</string>
+    <string name="concedida">✔ O seu pedido de urgência foi concedido pelo juiz</string>
+    <string name="baixar">Veja na integra</string>
+
+    <string name="intimacao68">✔ UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE - UFRN foi chamado para o processo</string>
+    <string name="intimacao47">✔ CAIXA DE PREVIDENCIA DOS FUNCS DO BANCO DO BRASIL e outro foi chamado para o processo</string>
+    <string name="contestacao68">✔ UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE - UFRN se defendeu no processo</string>
+    <string name="contestacao47">✔ CAIXA DE PREVIDENCIA DOS FUNCS DO BANCO DO BRASIL e outro se defendeu no processo</string>
+
+    <string name="provas">Provas</string>
+    <string name="nadaprovas">   Para este processo, não foram necessárias outras provas. Aguarde o início da fase de sentença.</string>
+
+    <string name="sentenca">Sentença</string>
+    <string name="sentencaprocedente68">✔ O juiz concordou com o pedido de parte autora. Prazo para recurso até 27/12/2014</string>
+    <string name="sentencaprocedente47">✔ O juiz concordou com o pedido de parte autora. Prazo para recurso até 11/04/2018</string>
+    <string name="arquivamento">✔ O processo encontra-se concluído e arquivado</string>
+
+    <!-- Erros -->
+    <string name="pedidos">O(s) pedido(s) da parte autora não foram concedidos pelo juíz</string>
+    <string name="decisao">Veja a decisão Completa</string>
+
+    <!-- -->
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="salva">Salva</string>
+    <string name="informacoes">Informe os dados</string>
+
+
+</resources>

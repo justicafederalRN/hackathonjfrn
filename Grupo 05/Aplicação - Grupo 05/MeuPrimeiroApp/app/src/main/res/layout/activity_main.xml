@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.liellison.meuprimeiroapp.MainActivity">
+
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:src="@drawable/logotrans"
+        app:layout_constraintBottom_toTopOf="@+id/loginBT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/consultaSimpleBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="74dp"
+        android:background="#828282"
+        android:text="@string/simples"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="299dp" />
+
+    <Button
+        android:id="@+id/loginBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="97dp"
+        android:background="#828282"
+        android:text="@string/login"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toStartOf="@+id/registroBT"
+        app:layout_constraintStart_toEndOf="@+id/consultaSimpleBT"
+        tools:ignore="MissingConstraints" />
+<!--
+    <Button
+        android:id="@+id/registroBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="#828282"
+        android:text="@string/registro"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="299dp"
+        android:layout_marginRight="54dp"/> -->
+
+</RelativeLayout>
