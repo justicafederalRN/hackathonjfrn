@@ -1,0 +1,23 @@
+input[name=search]{
+  width:0px;
+  display:none;
+  float:left;
+}
+.input-group-text{
+  width: 180px;
+  background-color: #2f508f;
+  color: white;
+}
+body{
+  background-image:url('../img/bg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+.bg-white{
+  background-color: #2f508f!important;
+}
+.btn-gray{
+  background-color:gray;
+  color:white;
+}

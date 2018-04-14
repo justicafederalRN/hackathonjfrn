@@ -1,0 +1,7 @@
+{
+    "require": {
+        "smalot/pdfparser": "^0.12.0",
+        "wrseward/pdf-parser": "^0.1.0",
+        "larapack/dd": "1.*"
+    }
+}
