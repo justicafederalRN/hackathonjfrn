@@ -1,0 +1,45 @@
+version: "3.4"
+
+services:
+
+    nginx:
+        build: ./nginx
+        container_name: justicafacil_webserver
+        restart: always
+        volumes:
+            - ./files/front:/var/www/html
+        depends_on:
+            - php
+            - db
+        networks:
+            - webserver
+            - backend
+
+    php:
+        build: ./php
+        container_name: php_jf
+        restart: always
+        volumes:
+            - ./files/front:/var/www/html
+        networks:
+            - backend
+            - database
+
+    db:
+        build: ./db
+        container_name: db_jf
+        restart: always
+        volumes:
+            - ./files/db:/var/lib/mysql
+        environment:
+            - MYSQL_RANDOM_ROOT_PASSWORD=YES
+            - MYSQL_DATABASE=${DB_NAME}
+            - MYSQL_USER=${DB_USER}
+            - MYSQL_PASSWORD=${DB_PASS}
+        networks:
+            - database
+
+networks:
+    webserver:
+    backend:
+    database:
