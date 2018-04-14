@@ -5,8 +5,7 @@ return [
     'plural'      => 'Petições Prioritárias',
     'gender'      => 'f',
     'model'       => '\\Processos\\Model\\Peticao',
-    'active_menu' => 'processos',
-    'active_submenu' => 'processos',
+    'active_menu' => 'peticoes',
     'after_load_config' => function ($controller) {
         $controller->addRowAction(
             'details',
@@ -68,20 +67,6 @@ return [
             'type'   => 'text', //date, options, db_options, text, boolean TODO: exibir mostrando 1:10 de 30
             'fields' => [
                 'numero_processo' => 'like'
-            ]
-        ],
-        'procedencia' => [
-            'label'  => 'Situação',
-            'type'   => 'options', //date, options, db_options, text, boolean TODO: exibir mostrando 1:10 de 30
-            'fields' => [
-                'procedente' => 'like'
-            ],
-            'options' => [
-                'options' => [
-                    '-' => 'Aberto',
-                    'P' => 'Procedente',
-                    'I' => 'Improcedente'
-                ]
             ]
         ]
     ],
