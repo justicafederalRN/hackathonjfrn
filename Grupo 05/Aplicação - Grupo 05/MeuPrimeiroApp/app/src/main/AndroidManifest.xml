@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.liellison.meuprimeiroapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ConsultaSimples" />
+        <activity android:name=".ResultadoBusca68" />
+        <activity android:name=".Login" />
+        <activity android:name=".Registro" />
+        <activity android:name=".Resultado68" />
+        <activity android:name=".Inicial68" />
+        <activity android:name=".Defesa68" />
+        <activity android:name=".Prova" />
+        <activity android:name=".Sentenca68" />
+        <activity android:name=".ResultadoBusca47"></activity>
+    </application>
+
+</manifest>
