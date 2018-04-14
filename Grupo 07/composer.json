@@ -1,0 +1,30 @@
+{
+    "require": {
+        "doctrine/dbal": "^2.5",
+        "symfony/http-foundation": "^3.0",
+        "symfony/http-kernel": "^3.0",
+        "filp/whoops": "^2.1",
+        "pimple/pimple": "^3.0",
+        "symfony/routing": "^3.0",
+        "monolog/monolog": "^1.19",
+        "swiftmailer/swiftmailer": "^5.4",
+        "kriswallsmith/assetic": "^1.3",
+        "robmorgan/phinx": "^0.6.6",
+        "php" : ">=5.6.0|>=7.0",
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "PHPOffice/PHPExcel": "^1.8",
+        "peppeocchi/php-cron-scheduler": "^2.3",
+        "nlp-tools/nlp-tools": "^0.1.3"
+    },
+    "authors": [
+        {
+            "name": "Waldson Patrício",
+            "email": "waldsonpatricio@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "symfony/console": "^3.3",
+        "codeception/codeception": "^2.3",
+        "fzaninotto/faker": "^1.7"
+    }
+}

@@ -1,0 +1,5 @@
+# Arquivo de Backup do Banco
+
+Como o arquivo de backup do banco possui 45MB e se colocar no projeto ultrapassa
+o limite de upload de projeto do github  (100MB), estou colocando em um servidor
+externo para download: http://waldson.com.br/cp.pgsql.backup
