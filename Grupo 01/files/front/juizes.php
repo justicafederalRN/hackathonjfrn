@@ -69,12 +69,6 @@
             <span class="nav-link-text">Advogados</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="pesquisa.html">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Pesquisa</span>
-          </a>
-        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -206,25 +200,25 @@
                 }
               }
               </script>
-              <label for="labelSentenca">Nº Processo:</label>
+              <label for="labelSentenca"><b>Nº Processo:</b></label>
               <input type="text2" class="form-control" name="numeroProcesso" maxlength="25" placeholder="Ex.: XXXXXXX-XX.XXXX.X.XX.XXXX" OnKeyPress="formatar('9999999-99.9999.9.99.9999', this)" >
 
             </div>
           </div>
           <div class="col-lg-5">
             <div class="form-group">
-              <label for="labelParteRe">Parte Ré:</label>
+              <label for="labelParteRe"><b>Parte Ré:</b></label>
               <input type="text2" class="form-control" name="nomeParteRe" id="nomeParteRe" placeholder="Digite a Parte Ré">
             </div>
           </div>
           <div class="col-lg-4">
             <div class="form-group">
-              <label for="labelSentenca">Sentença:</label>
+              <label for="labelSentenca"><b>Sentença:</b></label>
               <select class="form-control" name="selectSetenca">
                 <option selected value="">Todas</option>
                 <option value="P">Procedente</option>
                 <option value="I">Improcedente</option>
-                <option value="-">Sem julgamento</option>
+                <option value="-">Em andamento</option>
               </select>
             </div>
           </div>
@@ -233,8 +227,27 @@
         <div class="row">
           <div class="col-lg-3">
             <div class="form-group">
-              <label for="labelMagistrado">Nome do Magistrado:</label>
+              <label for="labelMagistrado"><b>Nome do Magistrado:</b></label>
               <input type="text" class="form-control" name="nomeMagistrado" id="nomeMagistrado" placeholder="Digite o nome do Magistrado">
+              
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="form-group">
+
+              <label for="labelAssunto"><b>Assunto:</b></label>
+              <select class="custom-select d-block w-100" name="Assuntos" id="Assuntos">
+                <option value="">Escolha um assunto...</option>
+                <?php
+
+                  $resultado = $database->listAssuntos();
+
+                  while ($row = $resultado->fetch_assoc()) {
+                      echo "<option value=\"" . utf8_encode($row['assunto']) . "\">" . utf8_encode($row['assunto']) . "</option>";
+                  }
+
+                ?>
+              </select>
               
             </div>
           </div>
@@ -328,12 +341,13 @@
               $grafico = $database->graficoProcesso($magistrado,$parte_re,$pro_improcedente,$nrprocesso);
 
             if( $magistrado === '' and $parte_re === '' and  $pro_improcedente === '' and  $nrprocesso === '' ){
-              echo "alert('Preencha pelo menos um dos campos 2');";
+              //echo "alert('Preencha pelo menos um dos campos 2');";
             } else {
               $grafico = $database->graficoProcesso($magistrado,$parte_re,$pro_improcedente,$nrprocesso);
             }
 
             //$row = mysql_query("SELECT * pro_improcedente FROM processos WHERE nrprocesso LIKE $nrprocesso", );
+            //$row_procedente = mysql_query("SELECT pro_improcedente WHERE pro_improcedente = "P" FROM processos WHERE nrprocesso LIKE $nrprocesso", );
             //$num_row = mysqli_fecth_row($row); <- quantidade total de linhas em pro_improcedente
 
             //quantidade em processo - 2 / num_row 
@@ -416,7 +430,7 @@
                   <th>Magistrado</th>
                   <th>Parte Autora</th>
                   <th>Parte Ré</th>
-                  <th>Classe Processual</th>
+                  <th>Assunto</th>
                   <th>Sentença</th>
                 </tr>
               </thead>
@@ -429,28 +443,29 @@
                       $parte_re = utf8_decode($_POST['nomeParteRe']);
                       $pro_improcedente = $_POST['selectSetenca'];
                       $nrprocesso = $_POST['numeroProcesso'];
+                      $assunto = $_POST['Assuntos'];
 
-                      if( $magistrado === '' and $parte_re === '' and  $pro_improcedente === '' and  $nrprocesso === '' ){
+                      if( $magistrado === '' and $parte_re === '' and  $pro_improcedente === '' and  $nrprocesso === '' and  $assunto === '' ){
                         echo "<script>alert('Preencha pelo menos um dos campos');</script>";
                       } else {
 
-                        $resultado = $database->searchMagistrado($magistrado,$parte_re,$pro_improcedente,$nrprocesso);
+                        $resultado = $database->searchMagistrado($magistrado,$parte_re,$pro_improcedente,$nrprocesso,$assunto);
 
                         while ($row = $resultado->fetch_assoc()) {
                           echo "<tr>\n"; 
-                          echo "<td><a href=\"https://justicafacil.com/peticoes/" . utf8_encode($row['nrprocesso']) . ".pdf\">" . utf8_encode($row['nrprocesso']) . "</a></td>\n";
+                          echo "<td><a href=\"http://localhost/peticoes/" . utf8_encode($row['nrprocesso']) . ".pdf\">" . utf8_encode($row['nrprocesso']) . "</a></td>\n";
                           echo "<td>" . utf8_encode($row['magistrado']) . "</td>\n";
                           echo "<td>" . utf8_encode($row['parte_autora']) . "</td>\n";
                           echo "<td>" . utf8_encode($row['parte_re']) . "</td>\n";
-                          echo "<td>" . utf8_encode($row['classe_processual']) . "</td>\n";
+                          echo "<td>" . utf8_encode($row['assunto']) . "</td>\n";
 
                           if (utf8_encode($row['pro_improcedente']) == "P"){
 
-                            echo "<td><a href=\"https://justicafacil.com/sentenca/" . utf8_encode($row['nrprocesso']) . ".pdf\"> <span class=\"badge badge-success\">PROCEDENTE</span> </a></td>\n";
+                            echo "<td><a href=\"http://localhost/sentenca/" . utf8_encode($row['nrprocesso']) . ".pdf\"> <span class=\"badge badge-success\">PROCEDENTE</span> </a></td>\n";
 
                           } elseif (utf8_encode($row['pro_improcedente']) == "I"){
 
-                            echo "<td><a href=\"https://justicafacil.com/sentenca/" . utf8_encode($row['nrprocesso']) . ".pdf\"> <span class=\"badge badge-danger\">IMPROCEDENTE</span> </a></td>\n";
+                            echo "<td><a href=\"http://localhost/sentenca/" . utf8_encode($row['nrprocesso']) . ".pdf\"> <span class=\"badge badge-danger\">IMPROCEDENTE</span> </a></td>\n";
 
                           } else {
 
@@ -482,14 +497,14 @@
           </div>
 
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        
       </div>
     </div>
 
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
+          <small>Copyright © SEI LA BOY 2018</small>
         </div>
       </div>
     </footer>

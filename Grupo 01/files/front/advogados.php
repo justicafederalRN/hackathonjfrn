@@ -47,12 +47,6 @@
             <span class="nav-link-text">Advogados</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="pesquisa.html">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Pesquisa</span>
-          </a>
-        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

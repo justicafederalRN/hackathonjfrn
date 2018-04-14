@@ -29,13 +29,13 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="classe-processual.html">
+          <a class="nav-link" href="classe-processual.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Classe Processual</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="juiz.html">
+          <a class="nav-link" href="juizes.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Juizes</span>
           </a>
@@ -44,12 +44,6 @@
           <a class="nav-link" href="advogados.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Advogados</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="pesquisa.html">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Pesquisa</span>
           </a>
         </li>
       </ul>
