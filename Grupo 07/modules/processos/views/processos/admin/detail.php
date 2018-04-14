@@ -33,7 +33,7 @@ if ($processo['procedente'] == 'P') {
         <div class="box">
             <div class="box-body">
                 <h3 style="margin-top:0">Informações</h3>
-                <table>
+                <table style="width:100%">
                     <?php foreach ($fields as $f => $label):?>
                     <tr>
                         <th style="padding:5px; text-align: right;"><?=$label?>:</th>
@@ -68,17 +68,22 @@ if ($processo['procedente'] == 'P') {
                         </tr>
                     <?php endforeach?>
                     <tr>
-                        <th style="padding:5px; text-align: right">Resumo Automático do Processo:</th>
-                        <td>
-                            <em class="text-muted">Em breve...</em>
+                        <th style="padding:5px;" colspan="2">Prévia do Processo:</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="pdf-object" id="pdf" data-src="<?=$this->url('/assets/processo_exemplo.pdf')?>">
+
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <th></th>
                         <td style="padding:20px 0;">
-                            <a href="#" class="bnt btn-primary btn-lg">
-                                <i class="fa fa-search"></i>
-                                Visualizar Processo
+                            <a href="<?=$this->url('/assets/processo_exemplo.pdf')?>" 
+                                class="bnt btn-primary btn-lg" target="_blank">
+                                <i class="fa fa-download"></i>
+                                Baixar Processo
                             </a>
                         </td>
                     </tr>
@@ -93,14 +98,20 @@ if ($processo['procedente'] == 'P') {
                     <h3 style="margin-top:0;margin-bottom:15px">Auxílio à Tomada de Decisão</h3>
                     <table>
                         <tr>
-                            <th style="padding-bottom:5px">Predição de concessão de Tutela: &nbsp;</th>
+                            <th style="padding-bottom:5px;vertical-align:top">Predição de concessão de Tutela: &nbsp;</th>
                             <td>
-                                <?=$tutela?> (<?= number_format($tutelaProbability * 100, 2, ',', '.')?>%)
+                                <?php
+                                $probSim = $tutela == 'Sim' ? $tutelaProbability : 1 - $tutelaProbability;
+                                $probNao = 1 - $probSim;
+                                ?>
+                                Sim (<?= number_format($probSim * 100, 2, ',', '.')?>%)<br />
+                                Não (<?= number_format($probNao * 100, 2, ',', '.')?>%)<br />
                             </td>
                         </tr>
                     </table>
                     <?php if (!empty($procedente)):?>
-                    <table>
+
+                    <table style="margin-top:20px">
                         <tr>
                             <th style="vertical-align:top">Predição de procedência:&nbsp;</th>
                             <td style="vertical-align:top">
@@ -113,6 +124,7 @@ if ($processo['procedente'] == 'P') {
                             </td>
                         </tr>
                     </table>
+                    <hr />
                     <?php else: ?>
                         <div class="alert alert-info">Não há dados suficientes para predizer a procedência.</div>
                     <?php endif ?>

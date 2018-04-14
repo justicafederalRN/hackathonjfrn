@@ -31,6 +31,16 @@ $theme     = isset($appConfig['theme']) ? $appConfig['theme'] : 'blue';
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style>
+      .pdfobject-container {
+          width:100%;
+          min-height:400px;
+      }
+      .pdf-object {
+          width:100%;
+          height:700px;
+      }
+  </style>
   <?=$this->renderBlock('css')?>
   <?=$this->renderBlock('head')?>
 </head>
@@ -415,9 +425,19 @@ $theme     = isset($appConfig['theme']) ? $appConfig['theme'] : 'blue';
 <script src="<?=$this->url('/assets/components/tinymce/tinymce.js')?>"></script>
 <script src="<?=$this->url('/assets/components/tinymce/jquery.tinymce.js')?>"></script>
 <script src="<?=$this->url('/assets/components/tinymce/langs/pt_BR.js')?>"></script>
+<script src="<?=$this->url('/assets/components/pdf-object/pdfobject.min.js')?>"></script>
 <script type="text/javascript">
  (function ($) {
      $(document).ready(function() {
+         $('.pdf-object').each(function() {
+             var source  = $(this).data('src');
+             var options = {
+                 fallbackLink: '<p>Este navegador não suporta a exibição de conteúdo PDF</p>',
+                 pdfOpenParams: { view: 'FitH', toolbar: '0', statusbar: '0' },
+             };
+
+             PDFObject.embed(source, '#' + $(this).attr('id'), options);
+         });
          $('.input-ajax-options').each(function () {
              var handler = $(this).data('ajaxHandler');
              $(this).select2({

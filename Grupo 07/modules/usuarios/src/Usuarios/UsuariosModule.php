@@ -35,7 +35,7 @@ class UsuariosModule extends \W5n\Module
     {
         $ui = $app['admin.ui_manager'];
         // $ui->ensureMenu('others', 'Outros', 'ellipsis-h', null, [], INF);
-        $ui->addMenu('usuarios', 'Usuários', 'user', $app->routeUrl('admin.crud', ['config' => 'usuarios']));
+        $ui->addMenu('usuarios', 'Usuários', 'user', $app->routeUrl('admin.crud', ['config' => 'usuarios']), null, 100000);
         $ui->addUserAction('edit-profile', 'Editar Perfil', $app->routeUrl('admin.usuarios.editar_perfil'));
         $ui->addUserAction('edit-password', 'Alterar Senha', $app->routeUrl('admin.usuarios.alterar_senha'));
         $ui->addUserAction('logout', 'Sair', $app->routeUrl('admin.auth', ['action' => 'logout']));
