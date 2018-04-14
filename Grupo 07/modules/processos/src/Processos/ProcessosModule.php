@@ -16,6 +16,15 @@ class ProcessosModule extends \W5n\Module
             $app->routeUrl('admin.crud', ['config' => 'processos'])
         );
 
+        $ui->addMenu(
+            'peticoes',
+            'Petições Prioritárias',
+            'warning',
+            $app->routeUrl('admin.crud', ['config' => 'peticoes']),
+            null,
+            2
+        );
+
         /* $ui->addSubmenu( */
         /*     'processos', */
         /*     'processos', */

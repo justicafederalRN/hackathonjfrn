@@ -36,7 +36,7 @@ class NestedController extends CrudController
         return 'admin.crud.nested';
     }
 
-    protected function getRouteUrl($route, array $params = array())
+    public function getRouteUrl($route, array $params = array())
     {
         if (!isset($params['config'])) {
             $params['config'] = $this->getRequest()->attributes->get('config');
