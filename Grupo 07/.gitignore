@@ -1,0 +1,7 @@
+/nbproject/private/
+nbproject/*
+vendor/
+bin/*
+tests/_output/*
+*.xcf
+DER.png
